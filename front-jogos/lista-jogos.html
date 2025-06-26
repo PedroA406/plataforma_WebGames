@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Todos os Jogos - WebGames</title>
+  <link rel="stylesheet" href="css/meus-jogos.css" /> 
+</head>
+<body>
+  <header class="topo">
+    <div class="logo">🎮 WebGames</div>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="criar-termo.html">Criar Jogo</a>
+      <a href="meus-jogos.html">Meus Jogos</a>
+      <a href="lista-jogos.html">Todos os Jogos</a>
+      <a href="buscar-jogo.html">Buscar Jogo</a>
+      <a href="perfil.html">Meu Perfil</a>
+    </nav>
+    <div class="topo-direita">
+      <span id="boasVindas" class="boas-vindas">Bem-vindo(a)</span>
+      <button id="logoutBtn" class="btn-sair">Sair</button>
+    </div>
+  </header>
+
+  <main class="painel-container">
+    <h1 class="painel-titulo">Jogos em Destaque</h1>
+    <p style="text-align: center; margin-top: -20px; margin-bottom: 40px; color: #b2ebf2;">Experimente um dos nossos jogos prontos para você!</p>
+    <div id="listaJogos" class="lista-jogos">
+      <p>Carregando jogos...</p>
+    </div>
+  </main>
+  
+  <script src="js/lista-jogos.js"></script>
+  <script src="js/auth.js"></script> </body>
+</html>

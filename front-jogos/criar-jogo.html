@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Criar Jogo - WebGames</title>
+ 
+  <link rel="stylesheet" href="css/criar-jogo.css" />
+</head>
+<body>
+  <header class="topo">
+    <div class="logo">🎮 WebGames</div>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="criar-termo.html">Criar Jogo</a>
+      <a href="meus-jogos.html">Meus Jogos</a>
+      <a href="lista-jogos.html">Todos os Jogos</a>
+      <a href="buscar-jogo.html">Buscar Jogo</a>
+      <a href="perfil.html">Meu Perfil</a>
+    </nav>
+    <div class="topo-direita">
+      <span id="boasVindas" class="boas-vindas">Bem-vindo(a)</span>
+      <button id="logoutBtn" class="btn-sair">Sair</button>
+    </div>
+  </header>
+
+  <main class="main-criar-jogo">
+    <h2 class="titulo-pagina">Criar Novo Jogo</h2>
+
+    <form id="formCriarJogo" class="form-criar-jogo">
+      <label for="nomeJogo">Nome do Jogo</label>
+      <input type="text" id="nomeJogo" placeholder="Digite o nome do jogo" required />
+
+      <label>Selecione os termos para o jogo</label>
+      <div id="listaTermos" class="lista-termos"></div>
+   
+
+      <label for="tipoJogo">Tipo de Jogo</label>
+      <select id="tipoJogo" required>
+        <option value="">-- Escolha o tipo --</option>
+        <option value="quiz">Quiz</option>
+        <option value="memoria">Memória</option>
+        <option value="associacao">Associação</option>
+      </select>
+
+      <div class="botoes-acao">
+        <button type="submit" class="btn btn-primario">Criar Jogo</button>
+        <a href="meus-jogos.html" class="btn btn-secundario">Ver Meus Jogos</a>
+      </div>
+      <p id="mensagemJogo" class="mensagem"></p>
+    </form>
+  </main>
+
+  <script src="js/criar-jogo.js"></script>
+</body>
+</html>

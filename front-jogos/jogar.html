@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jogar - Plataforma</title>
+  <link rel="stylesheet" href="css/jogar.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div class="container" role="main" aria-live="polite">
+    <h1 id="tituloJogo" tabindex="0">Carregando jogo...</h1>
+    <div id="areaJogo" aria-label="Área do jogo">
+      <div id="jogoQuiz" class="jogo-tipo" style="display: none;">
+        <div class="quiz-pergunta" id="perguntaQuiz" tabindex="0"></div>
+        <div class="quiz-respostas" id="respostasQuiz"></div>
+        <button id="btnProximoQuiz" class="btn btn-primario" style="display: none; margin-top: 20px; margin-bottom: 20px; margin-left: auto; margin-right: auto; display: block; text-align: center; width: 100%; max-width: 200px; cursor: pointer; background-color: #0ff; color: #000; border: none; padding: 12px; font-weight: bold; font-size: 1rem; border-radius: 8px; transition: background-color 0.3s ease; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); ">Próximo</button>
+        <div class="quiz-resultado" id="resultadoFinalQuiz" style="display: none;">
+          <h2>Resultado do Quiz</h2>
+          <p>Você acertou <span id="acertosQuiz"></span> de <span id="totalPerguntasQuiz"></span> perguntas!</p>
+        </div>
+        <div class="botoes-final" id="botoesFinalQuiz" style="display: none;">
+          <button id="btnJogarNovamenteQuiz" class="btn btn-primario">Jogar Novamente</button>
+          <button id="btnMeusJogosQuiz" class="btn btn-secundario" onclick="window.location.href='meus-jogos.html'">Meus Jogos</button>
+        </div>
+      </div>
+
+      <div id="jogoMemoria" class="jogo-tipo" style="display: none;">
+        <p class="instrucao">Clique nos cards para encontrar os pares de termos e definições!</p>
+        <div class="memoria-grid" id="memoriaGrid"></div>
+        <div id="resultadoMemoria" style="display: none;">
+          <h2>Parabéns!</h2>
+          <p>Você encontrou todos os pares!</p>
+          <div class="botoes-final">
+            <button id="btnJogarNovamenteMemoria" class="btn btn-primario" >Jogar Novamente</button>
+            <button id="btnMeusJogosMemoria" class="btn btn-secundario" onclick="window.location.href='meus-jogos.html'">Meus Jogos</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="jogoAssociacao" class="jogo-tipo" style="display: none;">
+        <p class="instrucao">Arraste a definição para o termo correspondente.</p>
+        <div class="associacao-container">
+          <div class="coluna-termos" id="colunaTermos">
+            <h3>Termos</h3>
+          </div>
+          <div class="coluna-definicoes" id="colunaDefinicoes">
+            <h3>Definições</h3>
+          </div>
+        </div>
+        <button id="btnVerificarAssociacao" class="btn btn-primario" style="display: none;">Verificar</button>
+        <div id="resultadoAssociacao" style="display: none;">
+          <h2>Resultado da Associação</h2>
+          <p>Você acertou <span id="acertosAssociacao"></span> de <span id="totalParesAssociacao"></span> pares!</p>
+          <div class="botoes-final" id="botoesFinalAssociacao" style="display: none;">
+            <button id="btnJogarNovamenteAssociacao" class="btn btn-primario">Jogar Novamente</button>
+            <button id="btnMeusJogosAssociacao" class="btn btn-secundario" onclick="window.location.href='meus-jogos.html'">Meus Jogos</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="js/jogar.js"></script>
+</body>
+</html>

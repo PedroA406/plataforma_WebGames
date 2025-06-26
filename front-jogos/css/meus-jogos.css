@@ -1,0 +1,469 @@
+.lista-jogos {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 20px;
+}
+
+.card-jogo {
+  background: rgba(0, 0, 0, 0.45);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 0 16px #0ff3;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+
+.card-jogo:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 24px #0ff8;
+}
+
+.info-jogo h3 {
+  color: #0ff;
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 1.5rem;
+}
+
+.info-jogo p {
+  color: #d0f7ff;
+  margin: 4px 0;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.codigo {
+  color: #0ff;
+  font-weight: 700;
+}
+
+.acoes-jogo {
+  display: flex;
+  gap: 16px;
+}
+
+.acoes-jogo button {
+  background: #0ff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.acoes-jogo button:hover {
+  background-color: #00cccc;
+}
+
+.compartilhar-painel {
+  background: rgba(15, 202, 255, 0.12);
+  border: 1px solid #0ff;
+  border-radius: 12px;
+  margin-top: 16px;
+  padding: 14px 20px;
+  color: #0ff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  user-select: all;
+}
+
+.compartilhar-painel a.link-jogo {
+  color: #0ff;
+  text-decoration: underline;
+  word-break: break-word;
+}
+
+.botoes-copiar {
+  margin-top: 10px;
+  display: flex;
+  gap: 14px;
+}
+
+.botoes-copiar .btn-copiar {
+  background: #0ff;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 18px;
+  font-weight: 700;
+  color: #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botoes-copiar .btn-copiar:hover {
+  background-color: #00cccc;
+}
+
+/* Adaptar para responsividade */
+
+@media (max-width: 600px) {
+  .card-jogo {
+    padding: 18px;
+  }
+
+  .acoes-jogo {
+    flex-direction: column;
+  }
+
+  .acoes-jogo button {
+    width: 100%;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
+
+header.topo {
+  background-color: #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.5rem;
+  color: #0ff;
+  font-weight: bold;
+}
+
+nav {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #0ff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+
+nav a:hover {
+  background: #0ff;
+  color: #000;
+}
+
+.topo-direita {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.boas-vindas {
+  font-size: 0.9rem;
+  color: #0ff;
+}
+
+.btn-sair {
+  background: transparent;
+  color: #0ff;
+  border: 1px solid #0ff;
+  border-radius: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-sair:hover {
+  background: #0ff;
+  color: #000;
+}
+
+main.painel-container {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.painel-titulo {
+  color: #0ff;
+  margin-bottom: 30px;
+}
+
+.painel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.painel {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 0 16px #0ff3;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
+}
+
+.painel:hover {
+  transform: scale(1.05);
+  background: rgba(0, 255, 255, 0.1);
+}
+
+.painel h2 {
+  color: #0ff;
+  margin-bottom: 12px;
+}
+
+.painel p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+.main-criar-jogo {
+  max-width: 800px;
+  margin: 60px auto;
+  background-color: var(--bg-card);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.titulo-pagina {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text);
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-criar-jogo label {
+  display: block;
+  margin: 20px 0 8px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.form-criar-jogo input,
+.form-criar-jogo select {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  background-color: var(--bg);
+  color: var(--text);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-criar-jogo input:focus,
+.form-criar-jogo select:focus {
+  border-color: #4caf50;
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+  outline: none;
+}
+
+.lista-termos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+.termo-card {
+  padding: 10px 16px;
+  border: 1px solid #a5d6a7;
+  border-radius: 12px;
+  background-color: #f1f8e9;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.termo-card:hover {
+  transform: scale(1.05);
+  background-color: #e6f4ea;
+}
+
+.botoes-acao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 35px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.btn {
+  padding: 12px 24px;
+  font-size: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.btn-primario {
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+}
+
+.btn-primario:hover {
+  background-color: #388e3c;
+}
+
+.btn-secundario {
+  background-color: #e0e0e0;
+  color: #333;
+  border: none;
+}
+
+.btn-secundario:hover {
+  background-color: #cfcfcf;
+}
+
+.mensagem {
+  text-align: center;
+  margin-top: 20px;
+  color: var(--text-light);
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  .main-criar-jogo {
+    padding: 25px;
+  }
+
+  .botoes-acao {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+.main-criar-jogo {
+  max-width: 800px;
+  margin: 60px auto;
+  background: rgba(0, 0, 0, 0.5); /* fundo escuro translúcido */
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 16px #0ff4; /* glow ciano */
+  color: #0ff; /* texto em azul-ciano neon */
+  backdrop-filter: blur(4px);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.titulo-pagina {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #0ff;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.form-criar-jogo label {
+  color: #b2ebf2;
+  font-weight: 500;
+  margin: 20px 0 8px;
+}
+
+.form-criar-jogo input,
+.form-criar-jogo select {
+  width: 100%;
+  padding: 14px;
+  font-size: 1rem;
+  border-radius: 12px;
+  border: 1px solid #0ff6;
+  background-color: rgba(15, 32, 39, 0.9);
+  color: #fff;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-criar-jogo input:focus,
+.form-criar-jogo select:focus {
+  border-color: #0ff;
+  box-shadow: 0 0 0 2px #0ff6;
+  outline: none;
+}
+
+.termo-card {
+  background-color: rgba(0, 255, 255, 0.1);
+  border: 1px solid #0ff4;
+  color: #0ff;
+}
+
+.termo-card:hover {
+  background-color: rgba(0, 255, 255, 0.15);
+  transform: scale(1.05);
+}
+
+.btn-primario {
+  background-color: #0ff;
+  color: #000;
+}
+
+.btn-primario:hover {
+  background-color: #00e5ff;
+}
+
+.btn-secundario {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border: 1px solid #ccc;
+}
+
+.btn-secundario:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.mensagem {
+  color: #80deea;
+}
+.lista-termos {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: 12px;
+  border: 1px solid #0ff5;
+  border-radius: 12px;
+  background-color: rgba(0, 255, 255, 0.05);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* Estilizando a barra de rolagem */
+.lista-termos::-webkit-scrollbar {
+  width: 8px;
+}
+
+.lista-termos::-webkit-scrollbar-track {
+  background: rgba(0, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.lista-termos::-webkit-scrollbar-thumb {
+  background-color: #0ff;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.lista-termos::-webkit-scrollbar-thumb:hover {
+  background-color: #00e5ff;
+}

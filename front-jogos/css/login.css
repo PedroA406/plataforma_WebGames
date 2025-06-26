@@ -1,0 +1,105 @@
+  /* Reset básico */
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #fff;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .container {
+    background-color: #1e2a38;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    width: 100%;
+    max-width: 400px;
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    font-weight: 700;
+    font-size: 1.8rem;
+    letter-spacing: 1.2px;
+    color: #00d8ff;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #a0cfe8;
+  }
+
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    background-color: #2e3d4f;
+    color: #fff;
+  }
+
+  input[type="email"]:focus,
+  input[type="password"]:focus {
+    outline: none;
+    background-color: #3b4a63;
+    box-shadow: 0 0 8px #00d8ff;
+  }
+
+  button[type="submit"] {
+    width: 100%;
+    background-color: #00d8ff;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    color: #1e2a38;
+    font-weight: 700;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button[type="submit"]:hover,
+  button[type="submit"]:focus {
+    background-color: #00a4bf;
+    outline: none;
+  }
+
+  .error {
+    color: #ff6b6b;
+    margin-top: -15px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-align: center;
+    min-height: 24px;
+  }
+
+  .cadastro-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #00d8ff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .cadastro-link:hover,
+  .cadastro-link:focus {
+    color: #00a4bf;
+    outline: none;
+  }

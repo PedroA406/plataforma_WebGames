@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meus Jogos - WebGames</title>
+
+  <link rel="stylesheet" href="css/meus-jogos.css" />
+</head>
+<body>
+  <header class="topo">
+    <div class="logo">🎮 WebGames</div>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="criar-termo.html">Criar Jogo</a>
+      <a href="meus-jogos.html">Meus Jogos</a>
+      <a href="lista-jogos.html">Todos os Jogos</a>
+      <a href="buscar-jogo.html">Buscar Jogo</a>
+      <a href="perfil.html">Meu Perfil</a>
+    </nav>
+    <div class="topo-direita">
+      <span id="boasVindas" class="boas-vindas">Bem-vindo(a)</span>
+      <button id="logoutBtn" class="btn-sair">Sair</button>
+    </div>
+  </header>
+  </header>
+
+  <main class="painel-container">
+    <h1 class="painel-titulo">Meus Jogos</h1>
+    <div id="listaJogos" class="lista-jogos">Carregando jogos...</div>
+  </main>
+  
+  <div id="modalCompartilhar" class="modal-overlay" style="display:none;">
+    <div class="modal-conteudo">
+      <h2>Compartilhar Jogo</h2>
+      <p>Use o link ou o código abaixo para compartilhar:</p>
+      
+      <label for="linkJogo">Link Direto:</label>
+      <input type="text" id="linkJogo" readonly />
+      
+      <label for="codigoJogo">Código de Acesso:</label>
+      <input type="text" id="codigoJogo" readonly />
+      
+      <button id="btnFecharModal" class="btn btn-primario">Fechar</button>
+    </div>
+  </div>
+
+  <script src="js/meus-jogos.js"></script>
+</body>
+</html>
