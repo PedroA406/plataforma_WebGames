@@ -76,7 +76,7 @@ node app.js
   
 - **Aniel Nascimento** — Desenvolvedor e idealizador da plataforma  
   GitHub: [@Aniel-err](https://github.com/Aniel-err)  
-  E-mail: paulo@email.com
+  E-mail: anielantonio063@gmail.com
 
 
 
