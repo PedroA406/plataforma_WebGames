@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - WebGames</title>
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topo">
+    <div class="logo">🎮 WebGames</div>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="criar-termo.html">Criar Jogo</a>
+      <a href="meus-jogos.html">Meus Jogos</a>
+      <a href="lista-jogos.html">Todos os Jogos</a>
+      <a href="buscar-jogo.html">Buscar Jogo</a>
+      <a href="perfil.html">Meu Perfil</a>
+    </nav>
+    <div class="topo-direita">
+      <span id="boasVindas" class="boas-vindas">Bem-vindo(a)</span>
+      <button id="logoutBtn" class="btn-sair">Sair</button>
+    </div>
+  </header>
+
+  <main class="painel-container">
+    <h1 class="painel-titulo">Painel Principal</h1>
+    <div class="painel-grid">
+      <div class="painel" onclick="window.location.href='criar-termo.html'">
+        <h2>➕ Criar Jogo</h2>
+        <p>Monte um novo jogo com seus termos.</p>
+      </div>
+
+      <div class="painel" onclick="window.location.href='meus-jogos.html'">
+        <h2>📂 Meus Jogos</h2>
+        <p>Gerencie os jogos que você criou.</p>
+      </div>
+
+      <div class="painel" onclick="window.location.href='lista-jogos.html'">
+        <h2>🌍 Todos os Jogos</h2>
+        <p>Veja jogos criados por outros usuários.</p>
+      </div>
+
+      <div class="painel" onclick="window.location.href='buscar-jogo.html'">
+        <h2>🔍 Buscar Jogo</h2>
+        <p>Insira um código de acesso e jogue.</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jogar - Plataforma</title>
+  <link rel="stylesheet" href="css/jogar.css" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+  <div class="container" role="main" aria-live="polite">
+    <h1 id="tituloJogo" tabindex="0">Carregando jogo...</h1>
+
+    <div class="game-info">
+      <div id="scoreDisplay"><strong>Pontuação:</strong> 0</div>
+      <div id="timerDisplay"><strong>Tempo:</strong> 0s</div>
+    </div>
+    
+    <div id="areaJogo" aria-label="Área do jogo">
+
+      <!-- Jogo Quiz -->
+      <div id="jogoQuiz" class="jogo-tipo" style="display: none;">
+        <div class="quiz-pergunta" id="perguntaQuiz" tabindex="0"></div>
+        <div class="quiz-respostas" id="respostasQuiz"></div>
+        <button id="btnProximoQuiz" class="btn btn-primario" style="display: none;">Próximo</button>
+        <div class="quiz-resultado" id="resultadoFinalQuiz" style="display: none;">
+          <h2>Resultado do Quiz</h2>
+          <p>Você acertou <span id="acertosQuiz"></span> de <span id="totalPerguntasQuiz"></span> perguntas!</p>
+        </div>
+        <div class="botoes-final" id="botoesFinalQuiz" style="display: none;">
+          <button id="btnJogarNovamenteQuiz" class="btn btn-primario">Jogar Novamente</button>
+        </div>
+      </div>
+
+      <!-- Jogo Memória -->
+      <div id="jogoMemoria" class="jogo-tipo" style="display: none;">
+        <p class="instrucao">Clique nos cards para encontrar os pares!</p>
+        <div class="memoria-grid" id="memoriaGrid"></div>
+        <div id="resultadoMemoria" style="display: none;">
+          <h2>Parabéns!</h2>
+          <p>Você encontrou todos os pares!</p>
+          <div class="botoes-final">
+            <button id="btnJogarNovamenteMemoria" class="btn btn-primario">Jogar Novamente</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jogo Associação -->
+      <div id="jogoAssociacao" class="jogo-tipo" style="display: none;">
+        <p class="instrucao">Arraste a definição para o termo correspondente.</p>
+        <div class="associacao-container">
+          <div class="coluna-termos" id="colunaTermos"><h3>Termos</h3></div>
+          <div class="coluna-definicoes" id="colunaDefinicoes"><h3>Definições</h3></div>
+        </div>
+        <button id="btnVerificarAssociacao" class="btn btn-primario" style="display: none;">Verificar</button>
+        <div id="resultadoAssociacao" style="display: none;">
+          <h2>Resultado da Associação</h2>
+          <p>Você acertou <span id="acertosAssociacao"></span> de <span id="totalParesAssociacao"></span> pares!</p>
+          <div class="botoes-final" id="botoesFinalAssociacao" style="display: none;">
+            <button id="btnJogarNovamenteAssociacao" class="btn btn-primario">Jogar Novamente</button>
+          </div>
+        </div>
+      </div>
+
+     <!-- Jogo Verdadeiro ou Falso -->
+<div id="jogoVerdadeiroFalso" class="jogo-tipo" style="display: none; text-align: center; padding: 2rem;">
+  <p id="perguntaVerdadeiroFalso" style="font-size: 1.5rem; font-weight: bold; color: #ffffff; margin-bottom: 2rem;"></p>
+  
+  <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+    <button id="btnVerdadeiro" class="botao-jogo">Verdadeiro</button>
+    <button id="btnFalso" class="botao-jogo">Falso</button>
+  </div>
+  
+  <div id="resultadoFinalVerdadeiroFalso" style="display: none; color: #ffffff; margin-bottom: 1rem;">
+    <p>Você acertou <span id="acertosVerdadeiroFalso" style="font-weight: bold;"></span> de <span id="totalPerguntasVerdadeiroFalso" style="font-weight: bold;"></span> perguntas.</p>
+  </div>
+  
+  <div id="botoesFinalVerdadeiroFalso" style="display: none;">
+    <button id="btnJogarNovamenteVerdadeiroFalso" class="botao-jogo">Jogar Novamente</button>
+  </div>
+</div>
+
+  <div>
+    <a href="index.html" class="btn-voltar-fixo">Voltar ao Menu Principal</a>
+  </div>
+
+  <script src="js/jogar.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buscar Jogo | WebGames</title>
+  <link rel="stylesheet" href="css/buscar-jogo.css" />
+</head>
+<body>
+  <header>
+    <h1>🎮 WebGames</h1>
+    <a href="index.html" class="btn-voltar">⬅ Voltar</a>
+  </header>
+
+  <main>
+    <div class="buscar-container">
+      <h2>Buscar Jogo Compartilhado</h2>
+      <p>Insira o <strong>código de acesso</strong> fornecido:</p>
+      <input type="text" id="codigoInput" placeholder="Ex: AB123C" maxlength="6" />
+      <button onclick="buscarJogo()">Buscar</button>
+      <div id="resultado" class="resultado"></div>
+    </div>
+  </main>
+
+  <script>
+    async function buscarJogo() {
+      const codigo = document.getElementById("codigoInput").value.trim().toUpperCase();
+      const resultado = document.getElementById("resultado");
+      resultado.innerHTML = "⏳ Buscando jogo...";
+
+      try {
+        const res = await fetch(`http://localhost:3000/api/jogos/codigo/${codigo}`);
+
+        if (!res.ok) throw new Error("Jogo não encontrado");
+
+        const jogo = await res.json();
+        resultado.innerHTML = `
+          <div class="card-jogo">
+            <h3>${jogo.nome}</h3>
+            <p><strong>Tipo:</strong> ${jogo.tipo}</p>
+            <p><strong>Termos:</strong> ${jogo.termos.length}</p>
+            <a href="jogar.html?id=${jogo._id}" class="btn-jogar">🎮 Jogar Agora</a>
+          </div>
+        `;
+      } catch (err) {
+        resultado.innerHTML = `<p class="erro">❌ Código inválido ou jogo não encontrado.</p>`;
+      }
+    }
+  </script>
+</body>
+</html>

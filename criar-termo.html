@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Criar Termo - WebGames</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+  <link rel="stylesheet" href="css/criar-termo.css" />
+</head>
+<body>
+  <header class="topo">
+    <div class="logo">🎮 WebGames</div>
+    <nav>
+      <a href="index.html">Dashboard</a>
+      <a href="criar-termo.html">Criar Jogo</a>
+      <a href="meus-jogos.html">Meus Jogos</a>
+      <a href="lista-jogos.html">Todos os Jogos</a>
+      <a href="buscar-jogo.html">Buscar Jogo</a>
+      <a href="perfil.html">Meu Perfil</a>
+    </nav>
+    <div class="topo-direita">
+      <span id="boasVindas" class="boas-vindas">Bem-vindo(a)</span>
+      <button id="logoutBtn" class="btn-sair">Sair</button>
+    </div>
+  </header>
+  </header>
+
+  <main class="main-criar-termo">
+    <h2>Crie seus termos e suas definições</h2>
+    <section id="form-container">
+
+   
+      <form id="termoForm" autocomplete="off">
+        <input type="text" id="termo" placeholder="Termo" required />
+        <input type="text" id="definicao" placeholder="Definição" required />
+        <center> <section><button class="btn-link" type="submit"> <span>Salvar Termo</span> </button></section> <center>
+
+        </section >
+      </form>
+      
+    
+
+   
+    <section id="lista-termos" class="lista-termos">
+
+      
+    </section>
+
+    <center><section><a href="criar-jogo.html" class="btn-link">Criar Jogo</a></section><center>
+    
+    
+  </main>
+
+  <script src="js/termos.js"></script>
+</body>
+</html>

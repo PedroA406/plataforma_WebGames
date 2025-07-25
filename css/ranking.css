@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
+
+header {
+  background-color: #111;
+  color: #0ff;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-voltar {
+  color: #0ff;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid #0ff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.btn-voltar:hover {
+  background: #0ff;
+  color: #000;
+}
+
+.ranking-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+#tituloJogo {
+  color: #0ff;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #0ff;
+}
+
+.ranking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.ranking-item {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid #0ff5;
+  border-radius: 10px;
+  padding: 15px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.ranking-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px #0ff8;
+}
+
+.ranking-posicao {
+  font-weight: bold;
+  color: #0ff;
+  flex-basis: 10%;
+}
+
+.ranking-nome {
+  flex-basis: 50%;
+  text-align: left;
+}
+
+.ranking-pontuacao {
+  flex-basis: 20%;
+  font-weight: 600;
+}
+
+.ranking-tempo {
+  flex-basis: 20%;
+  color: #b2ebf2;
+}
+
+/* Estilo para os 3 primeiros */
+.ranking-item:nth-child(1) .ranking-posicao,
+.ranking-item:nth-child(2) .ranking-posicao,
+.ranking-item:nth-child(3) .ranking-posicao {
+  font-size: 1.5rem;
+}

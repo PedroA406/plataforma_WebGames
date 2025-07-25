@@ -1,0 +1,733 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Reset e base */
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(135deg, #3a8dde, #7b50db);
+  margin: 0; min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  color: #fff;
+  user-select: none;
+}
+.btnMeusJogosMemoria{
+  background: #2a2a4d;
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.15rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.container {
+  background: #1f1f38;
+  max-width: 700px;
+  width: 100%;
+  border-radius: 16px;
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.4),
+    inset 0 0 40px rgba(255,255,255,0.1);
+  padding: 2.5rem 3rem;
+  text-align: center;
+  position: relative;
+}
+
+h1#tituloJogo {
+  font-weight: 600;
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+#quizPergunta {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 1.8rem;
+  min-height: 3.5rem;
+  line-height: 1.3;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.3);
+}
+
+.respostas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.resposta-btn {
+  background: #2a2a4d;
+  border: none;
+  padding: 1rem 1.2rem;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  color: #ddd;
+  cursor: pointer;
+  box-shadow:
+    0 2px 8px rgba(0,0,0,0.25);
+  transition:
+    background-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.2s ease;
+  text-align: left;
+  user-select: none;
+  position: relative;
+}
+
+.resposta-btn:hover:not(:disabled) {
+  background-color: #4457ff;
+  box-shadow: 0 4px 14px rgba(68,87,255,0.75);
+  transform: translateY(-3px);
+  color: #fff;
+}
+
+.resposta-btn:disabled {
+  cursor: default;
+  opacity: 0.75;
+}
+
+.resposta-btn.correta {
+  background-color: #4caf50 !important;
+  box-shadow: 0 0 15px 3px #4caf50aa;
+  color: white !important;
+}
+
+.resposta-btn.errada {
+  background-color: #f44336 !important;
+  box-shadow: 0 0 15px 3px #f44336aa;
+  color: white !important;
+}
+
+#btnProximo {
+  background: #ffcc00;
+  border: none;
+  color: #222;
+  font-weight: 600;
+  font-size: 1.15rem;
+  padding: 0.8rem 2.2rem;
+  border-radius: 50px;
+  box-shadow: 0 6px 15px #ffcc00aa;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
+
+#btnProximo:hover {
+  background-color: #f5b800;
+  box-shadow: 0 8px 20px #f5b800cc;
+}
+
+#resultadoFinal {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #ffeb3b;
+  text-shadow: 0 1px 8px #a67c00;
+  margin-bottom: 1.5rem;
+}
+
+/* Botões finais */
+#botoesFinal {
+  display: none;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+#botoesFinal button {
+  background: #4457ff;
+  border: none;
+  color: white;
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(68,87,255,0.75);
+  transition: background-color 0.3s ease;
+}
+
+#botoesFinal button:hover {
+  background-color: #2e3ecf;
+}
+
+/* Pequenas animações */
+.resposta-btn.correta::after,
+.resposta-btn.errada::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+}
+.resposta-btn.correta::after {
+  background: url('data:image/svg+xml;utf8,<svg fill="white" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M9 16.2l-4.2-4.2-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>') no-repeat center center;
+  background-size: contain;
+}
+.resposta-btn.errada::after {
+  background: url('data:image/svg+xml;utf8,<svg fill="white" height="22" viewBox="0 0 24 24" width="22" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>') no-repeat center center;
+  background-size: contain;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .container {
+    padding: 2rem 1.5rem;
+    max-width: 100%;
+  }
+  .respostas {
+    grid-template-columns: 1fr;
+  }
+  #botoesFinal {
+    flex-direction: column;
+  }
+}
+
+.associativo-grid {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 20px;
+}
+.coluna {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+button.selecionado {
+  border: 2px solid #007bff;
+}
+button.correta {
+  background-color: #28a745;
+  color: white;
+}
+button.errada {
+  background-color: #dc3545;
+  color: white;
+}
+
+
+.jogo-tipo {
+  padding: 1.5rem 1rem;
+  border-radius: 12px;
+  background-color: #2b2b4d; /* Um pouco mais claro que o container principal */
+  margin-top: 1.5rem;
+  box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.05);
+}
+
+.instrucao {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: #cdd9ed;
+  font-style: italic;
+}
+
+.botoes-final {
+  display: flex; /* Para alinhar os botões lado a lado */
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.botoes-final .btn-acao {
+  min-width: 150px;
+}
+
+/* ====================================== Estilos do Quiz (ajustes) ====================================== */
+.quiz-pergunta {
+  font-size: 1.8rem;
+  margin-bottom: 2.5rem;
+  color: #fff;
+  font-weight: 600;
+  min-height: 80px; /* Garante espaço mesmo com texto curto */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.quiz-respostas {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.resposta-btn {
+  background-color: #4a4a75;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  width: 100%;
+  text-align: left; /* Alinha o texto à esquerda */
+  position: relative; /* Para os ícones de feedback */
+}
+
+.resposta-btn:hover:not(:disabled) {
+  background-color: #6a6ad0;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.resposta-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.resposta-btn.correta {
+  background-color: #28a745; /* Verde para correto */
+  box-shadow: 0 0 15px rgba(40, 167, 69, 0.5);
+}
+
+.resposta-btn.errada {
+  background-color: #dc3545; /* Vermelho para errado */
+  box-shadow: 0 0 15px rgba(220, 53, 69, 0.5);
+}
+
+.quiz-resultado {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.quiz-resultado h2 {
+  color: #00d8ff;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.quiz-resultado span {
+  font-weight: 700;
+  color: #a0cfe8;
+}
+
+/* ====================================== Estilos da Memória ====================================== */
+.memoria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* 3-4 cards por linha */
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px; /* Para a animação de virar */
+  margin-top: 2rem;
+}
+
+.memoria-card {
+  width: 100%;
+  height: 120px; /* Altura fixa para cards */
+  background-color: #4a4a75;
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease-in-out;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  display: flex; /* Para centralizar o conteúdo do verso */
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  word-break: break-word; /* Quebra palavras longas */
+  padding: 0.5rem;
+}
+
+.memoria-card.virado {
+  transform: rotateY(180deg);
+  background-color: #6a6ad0; /* Cor ao virar */
+}
+
+.memoria-card.encontrado {
+  background-color: #28a745; /* Verde quando encontrado */
+  pointer-events: none; /* Não clicável após encontrado */
+  transform: rotateY(180deg) scale(1.05); /* Pequeno destaque ao encontrar */
+  box-shadow: 0 0 20px rgba(40, 167, 69, 0.7);
+}
+
+.memoria-card-frente,
+.memoria-card-verso {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Esconde a face de trás */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  overflow: hidden; /* Garante que o texto não vaze */
+}
+
+.memoria-card-frente {
+  background-color: #4a4a75;
+  border: 3px solid #7b50db; /* Borda da carta fechada */
+  /* Ícone opcional para a frente do card */
+  background-image: url('data:image/svg+xml;utf8,<svg fill="white" height="60" viewBox="0 0 24 24" width="60" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+}
+
+.memoria-card-verso {
+  background-color: #6a6ad0;
+  transform: rotateY(180deg);
+  padding: 0.8rem;
+  box-sizing: border-box; /* Garante que o padding não aumente o tamanho */
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.memoria-resultado {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.memoria-resultado h2 {
+  color: #00d8ff;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* ====================================== Estilos da Associação ====================================== */
+.associacao-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+  flex-wrap: wrap; /* Permite que as colunas quebrem em telas menores */
+}
+
+.coluna-termos,
+.coluna-definicoes {
+  flex: 1;
+  min-width: 250px;
+  background-color: #3b3b6b;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+  min-height: 300px; /* Altura mínima para as colunas */
+}
+
+.coluna-termos h3,
+.coluna-definicoes h3 {
+  color: #a0cfe8;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.associacao-item {
+  background-color: #4a4a75;
+  color: #fff;
+  border-radius: 8px;
+  padding: 0.8rem 1.2rem;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  cursor: grab; /* Indica que é arrastável */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  word-break: break-word;
+}
+
+.associacao-item.termo {
+  background-color: #7b50db; /* Cor diferenciada para termos */
+  color: #fff;
+  cursor: default; /* Termos não são arrastáveis */
+  border: 2px solid #5a3d9b;
+}
+
+.associacao-item.definicao:hover:not(.arrastando) {
+  background-color: #6a6ad0;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.associacao-item.arrastando {
+  opacity: 0.5;
+  transform: scale(0.95);
+  border: 2px dashed #00d8ff;
+}
+
+.associacao-item.correto {
+  background-color: #28a745; /* Verde para associação correta */
+  box-shadow: 0 0 15px rgba(40, 167, 69, 0.5);
+  border: 2px solid #1f7a30;
+}
+
+.associacao-item.incorreto {
+  background-color: #dc3545; /* Vermelho para associação incorreta */
+  box-shadow: 0 0 15px rgba(220, 53, 69, 0.5);
+  border: 2px solid #a82a36;
+}
+
+.associacao-resultado {
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.associacao-resultado h2 {
+  color: #00d8ff;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.associacao-resultado span {
+  font-weight: 700;
+  color: #a0cfe8;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .memoria-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 0.8rem;
+  }
+
+  .memoria-card {
+    height: 100px;
+    font-size: 0.9rem;
+  }
+
+  .coluna-termos,
+  .coluna-definicoes {
+    min-width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .associacao-container {
+      flex-direction: column;
+      gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+  h1#tituloJogo {
+    font-size: 2rem;
+  }
+  .quiz-pergunta {
+    font-size: 1.4rem;
+    min-height: 60px;
+  }
+  .resposta-btn {
+    font-size: 1rem;
+    padding: 0.8rem 1rem;
+  }
+  .botoes-final .btn-acao {
+    min-width: unset; /* Remove min-width */
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* --- AJUSTES ESPECÍFICOS SOLICITADOS --- */
+
+/* 1. Mudar a cor do título do jogo e do placar para branco */
+h1#tituloJogo,
+.game-info {
+    color: #FFFFFF;
+}
+
+/* 2. Estilizar os botões de fim de jogo para combinar com o tema da plataforma */
+.botoes-final .btn-primario {
+    background: #0ff;
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.botoes-final .btn-primario:hover {
+    background-color: #00cccc;
+}
+
+.botoes-final .btn-secundario {
+    background: transparent;
+    color: #0ff;
+    border: 1px solid #0ff;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+.botoes-final .btn-secundario:hover {
+    background: #0ff;
+    color: #000;
+}
+
+/* 3. Estilizar o novo botão de Voltar ao Menu que está sempre visível */
+.btn-voltar-fixo {
+    display: inline-block;
+    margin-top: 2rem;
+    background-color: transparent;
+    color: #0ff;
+    border: 1px solid #0ff;
+    padding: 10px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-voltar-fixo:hover {
+    background-color: #0ff;
+    color: #000;
+}
+
+/* --- CORREÇÃO: Estilo do botão 'Próximo' do Quiz --- */
+
+#btnProximoQuiz {
+    background: #0ff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    width: auto; /* Garante que não ocupe a largura toda */
+    display: inline-block; 
+    margin-top: 1.5rem;
+}
+
+#btnProximoQuiz:hover {
+    background-color: #00cccc;
+}
+
+/* --- CORREÇÕES PONTUAIS SOLICITADAS --- */
+
+/* 1. Altera a cor do título do jogo e dos textos de resultado para BRANCO */
+h1#tituloJogo,
+.quiz-resultado h2, .quiz-resultado p,
+.memoria-resultado h2, .memoria-resultado p,
+.associacao-resultado h2, .associacao-resultado p {
+    color: #FFFFFF;
+}
+
+/* 2. Aplica o estilo padrão da plataforma ao botão 'Verificar' do jogo de Associação */
+#btnVerificarAssociacao {
+    background: #0ff;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    width: auto;
+    display: inline-block;
+    margin-top: 1.5rem;
+}
+
+#btnVerificarAssociacao:hover {
+    background-color: #00cccc;
+}
+
+/* --- CORREÇÃO FINAL: Cor do texto do resultado (v2) --- */
+
+/* Alvo direto nos elementos de resultado para garantir a cor branca */
+#resultadoFinalQuiz h2, #resultadoFinalQuiz p,
+#resultadoMemoria h2, #resultadoMemoria p,
+#resultadoAssociacao h2, #resultadoAssociacao p {
+    color: #FFFFFF !important;
+}
+
+/* --- AJUSTE: Centralizar o botão 'Verificar' --- */
+
+#btnVerificarAssociacao {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#jogadorCorrida {
+    position: absolute;
+    transition: left 0.5s ease;
+    /* tamanho inicial que será sobrescrito pelo JS */
+    width: 60px;
+    height: 60px;
+    background-image: url('images/foguete.png'); /* ou sua imagem de foguete */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.opcoes-corrida button {
+  margin: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.opcoes-corrida button:hover {
+  background-color: #388E3C;
+}
+
+#botoesFinalCorrida {
+  display: none;
+}
+
+#botoesFinalCorrida.mostrar {
+  display: flex; /* ou block, conforme seu layout */
+  justify-content: center;
+  gap: 1rem;
+}
+
+.botao-jogo {
+  background-color: #4a90e2;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.botao-jogo:hover {
+  background-color: #357ABD;
+  transform: scale(1.05);
+}

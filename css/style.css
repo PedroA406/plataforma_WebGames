@@ -1,0 +1,182 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f4f6fa;
+  color: #333;
+}
+
+.topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: #1e90ff;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+nav {
+  flex: 1;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 1rem;
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  transition: opacity 0.3s;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+.topo-direita {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.boas-vindas {
+  font-size: 0.95rem;
+  font-weight: 400;
+}
+
+.btn-sair {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-sair:hover {
+  background-color: #e33;
+}
+
+.painel-container {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.painel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.painel {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 2rem;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.painel:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+.painel h2 {
+  margin-top: 0;
+  color: #1e90ff;
+}
+
+@media (max-width: 768px) {
+  .topo {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+
+  .topo-direita {
+    margin-top: 0.5rem;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  nav a {
+    margin: 0 0.5rem;
+  }
+  
+}
+
+#jogadorCorrida {
+    position: absolute;
+    transition: left 0.5s ease;
+    /* tamanho inicial que será sobrescrito pelo JS */
+    width: 60px;
+    height: 60px;
+    background-image: url('images/foguete.png'); /* ou sua imagem de foguete */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.opcoes-corrida button {
+  margin: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.opcoes-corrida button:hover {
+  background-color: #388E3C;
+}
+
+#botoesFinalCorrida {
+  display: none;
+}
+
+#botoesFinalCorrida.mostrar {
+  display: flex; /* ou block, conforme seu layout */
+  justify-content: center;
+  gap: 1rem;
+}
+
+.botao-jogo {
+  background-color: #4a90e2;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.botao-jogo:hover {
+  background-color: #357ABD;
+  transform: scale(1.05);
+}
